@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -13,8 +14,8 @@ public class QuizActivity extends AppCompatActivity {
     private Button mTrueButton;
     private Button mFalseButton;
     private TextView mQuestionTextView;
-    private Button mNextButton;
-    private Button mPrevButton;
+    private ImageButton mNextButton;
+    private ImageButton mPrevButton;
 
     private Question[] mQuestionBank = new Question[] {
          new Question(R.string.question_oceans, true),
@@ -75,12 +76,12 @@ public class QuizActivity extends AppCompatActivity {
             }
         });
 
-        mPrevButton = findViewById(R.id.back_button);
+        mPrevButton = findViewById(R.id.prev_button);
         mPrevButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(mCurrentIndex == 0) {
-                    mCurrentIndex = mQuestionBank.length - 1;
+                    mCurrentIndex = mQuestionBank.length;
                 }
                 mCurrentIndex--;
                 updateQuestion();
